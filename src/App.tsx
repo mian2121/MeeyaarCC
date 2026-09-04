@@ -67,12 +67,17 @@ function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-        <a href="/" className="flex items-baseline gap-2">
-          <span className="font-display text-lg font-extrabold tracking-tight text-white sm:text-xl">
-            Meeyar
+        <a href="/" className="flex items-center gap-2.5">
+          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-600 font-display text-xs font-extrabold tracking-wide text-white">
+            MCC
           </span>
-          <span className="hidden text-xs font-medium uppercase tracking-[0.22em] text-slate-400 sm:inline">
-            Customer Care
+          <span className="flex items-baseline gap-2">
+            <span className="font-display text-lg font-extrabold tracking-tight text-white sm:text-xl">
+              Meeyar
+            </span>
+            <span className="hidden text-xs font-medium uppercase tracking-[0.22em] text-slate-400 sm:inline">
+              Customer Care
+            </span>
           </span>
         </a>
         <a
