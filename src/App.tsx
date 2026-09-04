@@ -7,7 +7,7 @@ import {
 } from 'lucide-react'
 
 const DEMO_MAIL =
-  'mailto:admin@meeyaarcc.com?subject=Book%20a%20Demo%20%E2%80%94%20Meeyar%20Customer%20Care'
+  'mailto:meeyaarcc@gmail.com?subject=Book%20a%20Demo%20%E2%80%94%20Meeyar%20Customer%20Care'
 
 const services = [
   {
@@ -67,18 +67,12 @@ function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-        <a href="/" className="group flex items-center gap-3">
-          <span className="font-display text-xl font-extrabold tracking-[0.18em] text-white sm:text-2xl">
+        <a href="/" className="flex items-center gap-3">
+          <span className="inline-flex h-9 items-center justify-center rounded-lg bg-blue-600 px-2.5 font-display text-[12px] font-extrabold tracking-[0.06em] text-white">
             MCC
           </span>
-          <span className="hidden h-6 w-px bg-white/20 sm:block" aria-hidden />
-          <span className="hidden flex-col leading-none sm:flex">
-            <span className="text-sm font-semibold tracking-tight text-slate-200">
-              Meeyar
-            </span>
-            <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.22em] text-slate-500">
-              Customer Care
-            </span>
+          <span className="font-display text-[15px] font-bold tracking-tight text-white sm:text-base">
+            Meeyar Customer Care
           </span>
         </a>
         <a
@@ -312,10 +306,10 @@ function FinalCta() {
         </a>
         <p className="mt-6 text-sm text-slate-500">
           <a
-            href="mailto:admin@meeyaarcc.com"
+            href="mailto:meeyaarcc@gmail.com"
             className="text-slate-300 underline decoration-slate-600 underline-offset-4 transition hover:text-white"
           >
-            admin@meeyaarcc.com
+            meeyaarcc@gmail.com
           </a>
         </p>
       </div>
@@ -337,8 +331,8 @@ function Footer() {
           <a href="https://meeyaarcc.com" className="transition hover:text-slate-300">
             meeyaarcc.com
           </a>
-          <a href="mailto:admin@meeyaarcc.com" className="transition hover:text-slate-300">
-            admin@meeyaarcc.com
+          <a href="mailto:meeyaarcc@gmail.com" className="transition hover:text-slate-300">
+            meeyaarcc@gmail.com
           </a>
           <p className="mt-2 text-xs text-slate-600">
             © {new Date().getFullYear()} Meeyar Customer Care

@@ -3,7 +3,7 @@
 B2B landing page for Meeyar Customer Care — 24/7 call answering, emergency dispatch, and lead qualification for US HVAC contractors.
 
 **Domain:** [meeyaarcc.com](https://meeyaarcc.com)  
-**Contact:** [admin@meeyaarcc.com](mailto:admin@meeyaarcc.com)
+**Contact:** [meeyaarcc@gmail.com](mailto:meeyaarcc@gmail.com)
 
 ## Stack
 
