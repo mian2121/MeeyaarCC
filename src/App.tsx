@@ -7,7 +7,7 @@ import {
 } from 'lucide-react'
 
 const DEMO_MAIL =
-  'mailto:meeyaarcc@gmail.com?subject=Book%20a%20Demo%20%E2%80%94%20Meeyar%20Customer%20Care'
+  'mailto:meeyaarcc@gmail.com?subject=Book%20a%20Demo%20%E2%80%94%20Meeyaar%20Customer%20Care'
 
 const services = [
   {
@@ -72,7 +72,7 @@ function Header() {
             MCC
           </span>
           <span className="font-display text-[15px] font-bold tracking-tight text-white sm:text-base">
-            Meeyar Customer Care
+            Meeyaar Customer Care
           </span>
         </a>
         <a
@@ -113,7 +113,7 @@ function Hero() {
           </p>
 
           <p className="animate-fade-up-delay-1 mt-6 font-display text-4xl font-extrabold leading-none tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            Meeyar
+            Meeyaar
             <span className="mt-1 block font-serif text-3xl font-normal italic tracking-normal text-slate-300 sm:text-4xl md:text-5xl">
               Customer Care
             </span>
@@ -294,7 +294,7 @@ function FinalCta() {
           </span>
         </h2>
         <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-slate-400">
-          A short walkthrough tailored to US HVAC shops — see how Meeyar plugs
+          A short walkthrough tailored to US HVAC shops — see how Meeyaar plugs
           into your dispatch workflow.
         </p>
         <a
@@ -322,7 +322,7 @@ function Footer() {
     <footer className="border-t border-white/5 bg-[#03050a] py-10">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <div>
-          <p className="font-display text-lg font-bold text-white">Meeyar Customer Care</p>
+          <p className="font-display text-lg font-bold text-white">Meeyaar Customer Care</p>
           <p className="mt-1 text-xs uppercase tracking-[0.2em] text-slate-600">
             US HVAC answering &amp; dispatch
           </p>
@@ -335,7 +335,7 @@ function Footer() {
             meeyaarcc@gmail.com
           </a>
           <p className="mt-2 text-xs text-slate-600">
-            © {new Date().getFullYear()} Meeyar Customer Care
+            © {new Date().getFullYear()} Meeyaar Customer Care
           </p>
         </div>
       </div>
