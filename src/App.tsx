@@ -65,7 +65,7 @@ const liveCalls = [
 
 function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#05070d] text-[#f4f7fb]">
+    <div className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-900">
       <Header />
       <main>
         <Hero />
@@ -84,7 +84,7 @@ function Header() {
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
         <a href="/" className="flex items-center gap-3">
-          <span className="inline-flex h-9 items-center justify-center rounded-lg bg-blue-600 px-2.5 font-display text-[12px] font-extrabold tracking-[0.06em] text-white">
+          <span className="inline-flex h-9 items-center justify-center rounded-lg bg-blue-600 px-2.5 font-display text-[12px] font-extrabold tracking-[0.06em] text-white shadow-sm">
             MCC
           </span>
           <span className="font-display text-[15px] font-bold tracking-tight text-white sm:text-base">
@@ -93,7 +93,7 @@ function Header() {
         </a>
         <a
           href={DEMO_MAIL}
-          className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+          className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
         >
           Book a Demo
           <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -106,28 +106,26 @@ function Header() {
 function Hero() {
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden">
-      {/* Light faded HVAC backdrop */}
       <img
         src={img1}
         alt=""
-        className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_30%] opacity-60"
+        className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_30%]"
       />
-      <div className="absolute inset-0 bg-[#05070d]/45" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#05070d]/90 via-[#05070d]/55 to-[#05070d]/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] via-[#05070d]/20 to-[#05070d]/40" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_70%_40%,rgb(37_99_235_/_0.2),transparent_55%)]" />
-      <div className="hero-grain pointer-events-none absolute inset-0" />
+      <div className="absolute inset-0 bg-slate-900/55" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/50 to-slate-900/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-slate-900/40" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,rgb(37_99_235_/_0.25),transparent_55%)]" />
 
-      <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-16 pt-28 sm:px-8 lg:grid-cols-[1.15fr_0.95fr] lg:gap-10 lg:pb-20 lg:pt-24">
+      <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-20 pt-28 sm:px-8 lg:grid-cols-[1.15fr_0.95fr] lg:gap-10 lg:pb-24 lg:pt-24">
         <div>
-          <p className="animate-fade-up flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-400">
+          <p className="animate-fade-up flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-300">
             <span className="live-blink h-1.5 w-1.5 rounded-full bg-emerald-400" />
             After-hours. On duty. Always.
           </p>
 
           <p className="animate-fade-up-delay-1 mt-6 font-display text-4xl font-extrabold leading-none tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Meeyaar
-            <span className="mt-1 block font-serif text-3xl font-normal italic tracking-normal text-slate-300 sm:text-4xl md:text-5xl">
+            <span className="mt-1 block font-serif text-3xl font-normal italic tracking-normal text-slate-200 sm:text-4xl md:text-5xl">
               Customer Care
             </span>
           </p>
@@ -136,7 +134,7 @@ function Hero() {
             Never Lose an Emergency HVAC Call to a Competitor Again.
           </h1>
 
-          <p className="animate-fade-up-delay-3 mt-5 max-w-md text-base leading-relaxed text-slate-300 sm:text-lg">
+          <p className="animate-fade-up-delay-3 mt-5 max-w-md text-base leading-relaxed text-slate-200 sm:text-lg">
             24/7 call answering, emergency dispatch, and lead qualification for
             US HVAC contractors — every missed ring becomes a booked job.
           </p>
@@ -144,42 +142,41 @@ function Hero() {
           <div className="animate-fade-up-delay-3 mt-9 flex flex-wrap items-center gap-5">
             <a
               href={DEMO_MAIL}
-              className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_0_40px_-8px_rgb(37_99_235_/_0.7)] transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+              className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
             >
               Book a Demo
               <ArrowUpRight className="h-4 w-4" aria-hidden />
             </a>
             <a
               href="#services"
-              className="text-sm font-medium text-slate-400 underline decoration-slate-600 underline-offset-4 transition hover:text-white"
+              className="text-sm font-medium text-white/85 underline decoration-white/40 underline-offset-4 transition hover:text-white"
             >
               See how it works
             </a>
           </div>
         </div>
 
-        {/* Live dispatch board — product metaphor */}
         <div className="animate-fade-up-delay-2 relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
           <div
             className="pointer-events-none absolute -right-6 -top-6 h-28 w-28 md:h-36 md:w-36"
             aria-hidden
           >
-            <span className="ring-wave absolute inset-0 rounded-full border border-blue-400/35" />
-            <span className="ring-wave-delay absolute inset-0 rounded-full border border-blue-500/25" />
+            <span className="ring-wave absolute inset-0 rounded-full border border-sky-300/50" />
+            <span className="ring-wave-delay absolute inset-0 rounded-full border border-blue-400/35" />
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0f1a]/80 shadow-[0_30px_80px_-20px_rgb(0_0_0_/_0.8)] backdrop-blur-md">
-            <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+          <div className="overflow-hidden rounded-2xl border border-white/40 bg-white/90 shadow-xl shadow-slate-900/20 backdrop-blur-md">
+            <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
               <div className="flex items-center gap-2">
-                <span className="live-blink h-2 w-2 rounded-full bg-emerald-400" />
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                <span className="live-blink h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-700">
                   Live board
                 </span>
               </div>
               <span className="font-mono text-[11px] text-slate-500">Tonight · CST</span>
             </div>
 
-            <ul className="divide-y divide-white/5">
+            <ul className="divide-y divide-slate-100">
               {liveCalls.map((call) => (
                 <li
                   key={call.time + call.city}
@@ -187,20 +184,20 @@ function Hero() {
                 >
                   <span className="font-mono text-xs text-slate-500">{call.time}</span>
                   <div>
-                    <p className="text-sm font-semibold text-white">{call.type}</p>
+                    <p className="text-sm font-semibold text-slate-900">{call.type}</p>
                     <p className="text-xs text-slate-500">{call.city}</p>
                   </div>
-                  <span className="rounded-sm bg-blue-600/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-blue-300">
+                  <span className="rounded-sm bg-blue-600 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
                     {call.status}
                   </span>
                 </li>
               ))}
             </ul>
 
-            <div className="border-t border-white/10 bg-blue-600/10 px-4 py-3">
-              <p className="text-xs leading-relaxed text-slate-300">
+            <div className="border-t border-slate-200 bg-blue-50 px-4 py-3">
+              <p className="text-xs leading-relaxed text-slate-600">
                 Incoming answered in{' '}
-                <span className="font-semibold text-white">&lt; 3 rings</span>
+                <span className="font-semibold text-slate-900">&lt; 3 rings</span>
                 {' · '}synced to your calendar
               </p>
             </div>
@@ -218,27 +215,27 @@ function Gallery() {
   return (
     <section
       id="gallery"
-      className="relative overflow-hidden border-t border-white/5 bg-[#05070d] py-16 sm:py-24"
-      aria-label="Field work gallery"
+      className="relative -mt-8 overflow-hidden bg-slate-50 pb-16 pt-6 sm:-mt-10 sm:pb-24 sm:pt-8"
+      aria-label="HVAC work gallery"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-400">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-600">
           Real HVAC work
         </p>
-        <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           The calls we keep moving — emergencies, installs, peak season.
         </h2>
       </div>
 
       <div className="mt-10 space-y-4 sm:mt-14 sm:space-y-5">
         <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#05070d] to-transparent sm:w-24" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#05070d] to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-slate-50 to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-slate-50 to-transparent sm:w-24" />
           <div className="marquee-track-slow flex w-max gap-4 px-4">
             {rowA.map((item, i) => (
               <figure
                 key={`a-${item.label}-${i}`}
-                className="gallery-frame relative h-48 w-72 shrink-0 overflow-hidden rounded-xl border border-white/10 sm:h-56 sm:w-80"
+                className="gallery-frame relative h-48 w-72 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-white sm:h-56 sm:w-80"
               >
                 <img
                   src={item.src}
@@ -246,7 +243,7 @@ function Gallery() {
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pb-3 pt-10 text-xs font-medium text-white/90">
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-4 pb-3 pt-10 text-xs font-medium text-white">
                   {item.label}
                 </figcaption>
               </figure>
@@ -255,13 +252,13 @@ function Gallery() {
         </div>
 
         <div className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#05070d] to-transparent sm:w-24" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#05070d] to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-slate-50 to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-slate-50 to-transparent sm:w-24" />
           <div className="marquee-track-reverse flex w-max gap-4 px-4">
             {rowB.map((item, i) => (
               <figure
                 key={`b-${item.label}-${i}`}
-                className="gallery-frame relative h-40 w-64 shrink-0 overflow-hidden rounded-xl border border-white/10 sm:h-48 sm:w-72"
+                className="gallery-frame relative h-40 w-64 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-white sm:h-48 sm:w-72"
               >
                 <img
                   src={item.src}
@@ -269,7 +266,7 @@ function Gallery() {
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pb-3 pt-10 text-xs font-medium text-white/90">
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-4 pb-3 pt-10 text-xs font-medium text-white">
                   {item.label}
                 </figcaption>
               </figure>
@@ -283,36 +280,35 @@ function Gallery() {
 
 function Services() {
   return (
-    <section id="services" className="relative border-t border-white/5 bg-[#05070d] py-20 sm:py-28">
-      <div className="scan-line pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+    <section id="services" className="relative border-t border-slate-200 bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="max-w-2xl">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-400">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-600">
             What we run for you
           </p>
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
             Built for shops that can&apos;t miss a ring.
           </h2>
         </div>
 
-        <ul className="mt-14 divide-y divide-white/10 border-y border-white/10">
+        <ul className="mt-14 divide-y divide-slate-200 border-y border-slate-200">
           {services.map(({ num, icon: Icon, title, description }) => (
             <li
               key={title}
               className="service-row group grid gap-6 px-1 py-10 sm:grid-cols-[5rem_1fr] sm:gap-10 md:grid-cols-[5rem_1.1fr_1.4fr] md:items-start"
             >
-              <span className="font-display text-3xl font-bold text-blue-600/80 transition group-hover:text-blue-500">
+              <span className="font-display text-3xl font-bold text-blue-600 transition group-hover:text-blue-500">
                 {num}
               </span>
               <div>
-                <div className="mb-3 flex h-9 w-9 items-center justify-center text-blue-400">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
                   <Icon className="h-5 w-5" aria-hidden />
                 </div>
-                <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
+                <h3 className="font-display text-xl font-bold text-slate-900 sm:text-2xl">
                   {title}
                 </h3>
               </div>
-              <p className="text-sm leading-relaxed text-slate-400 sm:text-base md:pt-1">
+              <p className="text-sm leading-relaxed text-slate-600 sm:text-base md:pt-1">
                 {description}
               </p>
             </li>
@@ -327,17 +323,17 @@ function Integrations() {
   return (
     <section
       id="integrations"
-      className="relative overflow-hidden border-t border-white/5 bg-[#080b14] py-20 sm:py-24"
+      className="relative overflow-hidden border-t border-slate-200 bg-slate-100 py-20 sm:py-24"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="max-w-xl">
-          <div className="mb-4 flex h-9 w-9 items-center justify-center text-blue-400">
+          <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">
             <CalendarSync className="h-5 w-5" aria-hidden />
           </div>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Books straight into your calendar.
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-400">
+          <p className="mt-4 text-base leading-relaxed text-slate-600">
             Direct sync with the platforms your techs already live in — no
             double-entry, no lost appointments.
           </p>
@@ -345,13 +341,13 @@ function Integrations() {
       </div>
 
       <div className="relative mt-14 overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#080b14] to-transparent sm:w-28" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#080b14] to-transparent sm:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-slate-100 to-transparent sm:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-slate-100 to-transparent sm:w-28" />
         <div className="marquee-track flex w-max gap-4 px-4">
           {integrations.map((name, i) => (
             <span
               key={`${name}-${i}`}
-              className="inline-flex shrink-0 items-center border border-white/10 bg-white/[0.03] px-8 py-4 font-display text-lg font-semibold tracking-wide text-slate-200"
+              className="inline-flex shrink-0 items-center rounded-lg border border-slate-200 bg-white px-8 py-4 font-display text-lg font-semibold tracking-wide text-slate-800 shadow-sm"
             >
               {name}
             </span>
@@ -364,25 +360,25 @@ function Integrations() {
 
 function FinalCta() {
   return (
-    <section className="relative border-t border-white/5 py-24 sm:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,rgb(37_99_235_/_0.18),transparent)]" />
+    <section className="relative border-t border-slate-200 bg-white py-24 sm:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,rgb(37_99_235_/_0.12),transparent)]" />
       <div className="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-400">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-600">
           Ready when the phone rings
         </p>
-        <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white sm:text-5xl">
+        <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">
           Own every emergency call
-          <span className="mt-2 block font-serif text-3xl font-normal italic text-slate-300 sm:text-4xl">
+          <span className="mt-2 block font-serif text-3xl font-normal italic text-slate-600 sm:text-4xl">
             in your market.
           </span>
         </h2>
-        <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-slate-400">
+        <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-slate-600">
           A short walkthrough tailored to US HVAC shops — see how Meeyaar plugs
           into your dispatch workflow.
         </p>
         <a
           href={DEMO_MAIL}
-          className="mt-10 inline-flex items-center gap-2 rounded-md bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_0_40px_-8px_rgb(37_99_235_/_0.7)] transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+          className="mt-10 inline-flex items-center gap-2 rounded-md bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
         >
           Book a Demo
           <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -390,7 +386,7 @@ function FinalCta() {
         <p className="mt-6 text-sm text-slate-500">
           <a
             href="mailto:meeyaarcc@gmail.com"
-            className="text-slate-300 underline decoration-slate-600 underline-offset-4 transition hover:text-white"
+            className="text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-blue-600"
           >
             meeyaarcc@gmail.com
           </a>
@@ -402,22 +398,22 @@ function FinalCta() {
 
 function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-[#03050a] py-10">
+    <footer className="border-t border-slate-200 bg-slate-900 py-10 text-slate-300">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <div>
           <p className="font-display text-lg font-bold text-white">Meeyaar Customer Care</p>
-          <p className="mt-1 text-xs uppercase tracking-[0.2em] text-slate-600">
+          <p className="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500">
             US HVAC answering &amp; dispatch
           </p>
         </div>
-        <div className="flex flex-col gap-1 text-sm text-slate-500 sm:items-end">
-          <a href="https://meeyaarcc.com" className="transition hover:text-slate-300">
+        <div className="flex flex-col gap-1 text-sm text-slate-400 sm:items-end">
+          <a href="https://meeyaarcc.com" className="transition hover:text-white">
             meeyaarcc.com
           </a>
-          <a href="mailto:meeyaarcc@gmail.com" className="transition hover:text-slate-300">
+          <a href="mailto:meeyaarcc@gmail.com" className="transition hover:text-white">
             meeyaarcc@gmail.com
           </a>
-          <p className="mt-2 text-xs text-slate-600">
+          <p className="mt-2 text-xs text-slate-500">
             © {new Date().getFullYear()} Meeyaar Customer Care
           </p>
         </div>
