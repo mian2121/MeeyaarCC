@@ -110,12 +110,12 @@ function Hero() {
       <img
         src={img1}
         alt=""
-        className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_30%] opacity-[0.28]"
+        className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_30%] opacity-60"
       />
-      <div className="absolute inset-0 bg-[#05070d]/72" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#05070d] via-[#05070d]/80 to-[#05070d]/45" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] via-[#05070d]/35 to-[#05070d]/55" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_70%_40%,rgb(37_99_235_/_0.18),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[#05070d]/45" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#05070d]/90 via-[#05070d]/55 to-[#05070d]/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] via-[#05070d]/20 to-[#05070d]/40" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_70%_40%,rgb(37_99_235_/_0.2),transparent_55%)]" />
       <div className="hero-grain pointer-events-none absolute inset-0" />
 
       <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-16 pt-28 sm:px-8 lg:grid-cols-[1.15fr_0.95fr] lg:gap-10 lg:pb-20 lg:pt-24">
@@ -168,7 +168,7 @@ function Hero() {
             <span className="ring-wave-delay absolute inset-0 rounded-full border border-blue-500/25" />
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0f1a]/90 shadow-[0_30px_80px_-20px_rgb(0_0_0_/_0.8)] backdrop-blur-sm">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0f1a]/80 shadow-[0_30px_80px_-20px_rgb(0_0_0_/_0.8)] backdrop-blur-md">
             <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
               <div className="flex items-center gap-2">
                 <span className="live-blink h-2 w-2 rounded-full bg-emerald-400" />
