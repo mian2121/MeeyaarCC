@@ -1,3 +1,9 @@
+import img1 from './assets/slider/1.jpg'
+import img2 from './assets/slider/2.jpg'
+import img3 from './assets/slider/3.jpg'
+import img4 from './assets/slider/4.jpg'
+import img5 from './assets/slider/5.jpg'
+import img6 from './assets/slider/6.jpg'
 import {
   ArrowUpRight,
   CalendarSync,
@@ -8,6 +14,15 @@ import {
 
 const DEMO_MAIL =
   'mailto:meeyaarcc@gmail.com?subject=Book%20a%20Demo%20%E2%80%94%20Meeyaar%20Customer%20Care'
+
+const gallery = [
+  { src: img1, label: 'Field-ready crews' },
+  { src: img2, label: 'On-site expertise' },
+  { src: img3, label: 'Precision work' },
+  { src: img4, label: 'Detail that matters' },
+  { src: img5, label: 'Jobs closed right' },
+  { src: img6, label: 'Trusted partners' },
+] as const
 
 const services = [
   {
@@ -54,6 +69,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Gallery />
         <Services />
         <Integrations />
         <FinalCta />
@@ -191,6 +207,76 @@ function Hero() {
                 {' · '}synced to your calendar
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Gallery() {
+  const rowA = [...gallery, ...gallery]
+  const rowB = [...gallery.slice().reverse(), ...gallery.slice().reverse()]
+
+  return (
+    <section
+      id="gallery"
+      className="relative overflow-hidden border-t border-white/5 bg-[#05070d] py-16 sm:py-24"
+      aria-label="Field work gallery"
+    >
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-400">
+          Built for the field
+        </p>
+        <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          The crews we keep moving — nights, weekends, peak season.
+        </h2>
+      </div>
+
+      <div className="mt-10 space-y-4 sm:mt-14 sm:space-y-5">
+        <div className="relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#05070d] to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#05070d] to-transparent sm:w-24" />
+          <div className="marquee-track-slow flex w-max gap-4 px-4">
+            {rowA.map((item, i) => (
+              <figure
+                key={`a-${item.label}-${i}`}
+                className="gallery-frame relative h-48 w-72 shrink-0 overflow-hidden rounded-xl border border-white/10 sm:h-56 sm:w-80"
+              >
+                <img
+                  src={item.src}
+                  alt=""
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pb-3 pt-10 text-xs font-medium text-white/90">
+                  {item.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#05070d] to-transparent sm:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#05070d] to-transparent sm:w-24" />
+          <div className="marquee-track-reverse flex w-max gap-4 px-4">
+            {rowB.map((item, i) => (
+              <figure
+                key={`b-${item.label}-${i}`}
+                className="gallery-frame relative h-40 w-64 shrink-0 overflow-hidden rounded-xl border border-white/10 sm:h-48 sm:w-72"
+              >
+                <img
+                  src={item.src}
+                  alt=""
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pb-3 pt-10 text-xs font-medium text-white/90">
+                  {item.label}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </div>

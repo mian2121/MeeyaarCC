@@ -125,6 +125,35 @@
   animation: marquee 28s linear infinite;
 }
 
+.marquee-track-slow {
+  animation: marquee 55s linear infinite;
+}
+
+.marquee-track-reverse {
+  animation: marquee 50s linear infinite reverse;
+}
+
+.gallery-frame {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+}
+
+.gallery-frame:hover {
+  transform: scale(1.03);
+  border-color: rgb(37 99 235 / 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-slow,
+  .marquee-track-reverse,
+  .ring-wave,
+  .ring-wave-delay,
+  .live-blink,
+  .scan-line {
+    animation: none;
+  }
+}
+
 .scan-line {
   animation: scan 7s ease-in-out infinite;
 }
