@@ -16,12 +16,12 @@ const DEMO_MAIL =
   'mailto:meeyaarcc@gmail.com?subject=Book%20a%20Demo%20%E2%80%94%20Meeyaar%20Customer%20Care'
 
 const gallery = [
-  { src: img1, label: 'Field-ready crews' },
-  { src: img2, label: 'On-site expertise' },
-  { src: img3, label: 'Precision work' },
-  { src: img4, label: 'Detail that matters' },
-  { src: img5, label: 'Jobs closed right' },
-  { src: img6, label: 'Trusted partners' },
+  { src: img1, label: 'Outdoor AC service' },
+  { src: img2, label: 'Heating system repair' },
+  { src: img3, label: 'Rooftop condensers' },
+  { src: img4, label: 'Refrigerant diagnostics' },
+  { src: img5, label: 'Commercial cooling' },
+  { src: img6, label: 'HVAC plant equipment' },
 ] as const
 
 const services = [
@@ -226,10 +226,10 @@ function Gallery() {
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-400">
-          Built for the field
+          Real HVAC work
         </p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          The crews we keep moving — nights, weekends, peak season.
+          The calls we keep moving — emergencies, installs, peak season.
         </h2>
       </div>
 
