@@ -106,19 +106,16 @@ function Header() {
 function Hero() {
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden">
-      {/* Atmosphere — night grid + blue wash */}
-      <div className="absolute inset-0 bg-[#05070d]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_70%_40%,rgb(37_99_235_/_0.22),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_15%_80%,rgb(14_165_233_/_0.1),transparent_50%)]" />
-      <div
-        className="absolute inset-0 opacity-[0.18]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgb(148_163_184_/_0.12) 1px, transparent 1px), linear-gradient(90deg, rgb(148_163_184_/_0.12) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-          maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 75%)',
-        }}
+      {/* Light faded HVAC backdrop */}
+      <img
+        src={img1}
+        alt=""
+        className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_30%] opacity-[0.28]"
       />
+      <div className="absolute inset-0 bg-[#05070d]/72" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#05070d] via-[#05070d]/80 to-[#05070d]/45" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#05070d] via-[#05070d]/35 to-[#05070d]/55" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_70%_40%,rgb(37_99_235_/_0.18),transparent_55%)]" />
       <div className="hero-grain pointer-events-none absolute inset-0" />
 
       <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-16 pt-28 sm:px-8 lg:grid-cols-[1.15fr_0.95fr] lg:gap-10 lg:pb-20 lg:pt-24">
