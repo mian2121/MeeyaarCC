@@ -1,7 +1,0 @@
-.agents
-.taste-skill
-.playwright-cli
-.playwright-cli/
-node_modules
-dist
-*.log
