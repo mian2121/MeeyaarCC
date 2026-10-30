@@ -1,0 +1,127 @@
+- generic [ref=f2e3]:
+  - banner [ref=f2e4]:
+    - generic [ref=f2e5]:
+      - link [ref=f2e6] [cursor=pointer]:
+        - /url: /
+        - img "Meeyaar Customer Care" [ref=f2e7]
+      - link "Contact now" [ref=f2e8] [cursor=pointer]:
+        - /url: tel:+19085048800
+  - main [ref=f2e12]:
+    - generic [ref=f2e18]:
+      - generic [ref=f2e19]:
+        - paragraph [ref=f2e20]: After-hours. On duty. Always.
+        - paragraph [ref=f2e22]:
+          - text: Meeyaar
+          - generic [ref=f2e23]: Customer Care
+        - heading "Never Lose an Emergency HVAC Call to a Competitor Again." [level=1] [ref=f2e24]
+        - paragraph [ref=f2e25]: 24/7 call answering, emergency dispatch, and lead qualification for US HVAC contractors — every missed ring becomes a booked job.
+        - generic [ref=f2e26]:
+          - link "Contact now" [ref=f2e27] [cursor=pointer]:
+            - /url: tel:+19085048800
+          - link "See how it works" [ref=f2e31] [cursor=pointer]:
+            - /url: "#services"
+      - generic [ref=f2e33]:
+        - generic [ref=f2e34]:
+          - generic [ref=f2e35]: Live board
+          - generic [ref=f2e38]: Tonight · CST
+        - list [ref=f2e39]:
+          - listitem [ref=f2e40]:
+            - generic [ref=f2e41]: 2:14 AM
+            - generic [ref=f2e42]:
+              - paragraph [ref=f2e43]: No Heat
+              - paragraph [ref=f2e44]: Dallas, TX
+            - generic [ref=f2e45]: Dispatched
+          - listitem [ref=f2e46]:
+            - generic [ref=f2e47]: 1:58 AM
+            - generic [ref=f2e48]:
+              - paragraph [ref=f2e49]: AC Emergency
+              - paragraph [ref=f2e50]: Phoenix, AZ
+            - generic [ref=f2e51]: Qualified
+          - listitem [ref=f2e52]:
+            - generic [ref=f2e53]: 1:41 AM
+            - generic [ref=f2e54]:
+              - paragraph [ref=f2e55]: Water Leak
+              - paragraph [ref=f2e56]: Austin, TX
+            - generic [ref=f2e57]: Booked
+        - paragraph [ref=f2e59]: Incoming answered in < 3 rings · synced to your calendar
+    - region "HVAC work gallery" [ref=f2e60]:
+      - generic [ref=f2e61]:
+        - paragraph [ref=f2e62]: Real HVAC work
+        - heading "The calls we keep moving — emergencies, installs, peak season." [level=2] [ref=f2e63]
+      - generic [ref=f2e64]:
+        - generic [ref=f2e66]:
+          - figure "Outdoor AC service" [ref=f2e67]
+          - figure "Heating system repair" [ref=f2e69]
+          - figure "Rooftop condensers" [ref=f2e71]
+          - figure "Refrigerant diagnostics" [ref=f2e73]
+          - figure "Commercial cooling" [ref=f2e75]
+          - figure "HVAC plant equipment" [ref=f2e77]
+          - figure "Outdoor AC service" [ref=f2e79]
+          - figure "Heating system repair" [ref=f2e81]
+          - figure "Rooftop condensers" [ref=f2e83]
+          - figure "Refrigerant diagnostics" [ref=f2e85]
+          - figure "Commercial cooling" [ref=f2e87]
+          - figure "HVAC plant equipment" [ref=f2e89]
+        - generic [ref=f2e92]:
+          - figure "HVAC plant equipment" [ref=f2e93]
+          - figure "Commercial cooling" [ref=f2e95]
+          - figure "Refrigerant diagnostics" [ref=f2e97]
+          - figure "Rooftop condensers" [ref=f2e99]
+          - figure "Heating system repair" [ref=f2e101]
+          - figure "Outdoor AC service" [ref=f2e103]
+          - figure "HVAC plant equipment" [ref=f2e105]
+          - figure "Commercial cooling" [ref=f2e107]
+          - figure "Refrigerant diagnostics" [ref=f2e109]
+          - figure "Rooftop condensers" [ref=f2e111]
+          - figure "Heating system repair" [ref=f2e113]
+          - figure "Outdoor AC service" [ref=f2e115]
+    - generic [ref=f2e118]:
+      - generic [ref=f2e119]:
+        - paragraph [ref=f2e120]: What we run for you
+        - heading "Built for shops that can't miss a ring." [level=2] [ref=f2e121]
+      - list [ref=f2e122]:
+        - listitem [ref=f2e123]:
+          - generic [ref=f2e124]: "01"
+          - heading "24/7 Emergency Dispatching" [level=3] [ref=f2e131]
+          - paragraph [ref=f2e132]: Nights, weekends, holidays. We catch every after-hours ring, triage urgency, and get a tech rolling before the homeowner calls your competitor.
+        - listitem [ref=f2e133]:
+          - generic [ref=f2e134]: "02"
+          - heading "Inbound Lead Qualification" [level=3] [ref=f2e141]
+          - paragraph [ref=f2e142]: Service area, job type, booking readiness — screened before it hits your board. Your crew talks to real jobs, not tire-kickers.
+        - listitem [ref=f2e143]:
+          - generic [ref=f2e144]: "03"
+          - heading "Outbound Seasonal Recall & Maintenance" [level=3] [ref=f2e152]
+          - paragraph [ref=f2e153]: Tune-ups and memberships that fill the slow months. We bring past customers back before peak heat and freeze seasons hit.
+    - generic [ref=f2e154]:
+      - generic [ref=f2e156]:
+        - heading "Books straight into your calendar." [level=2] [ref=f2e164]
+        - paragraph [ref=f2e165]: Direct sync with the platforms your techs already live in — no double-entry, no lost appointments.
+      - generic [ref=f2e167]:
+        - generic [ref=f2e168]: ServiceTitan
+        - generic [ref=f2e169]: Housecall Pro
+        - generic [ref=f2e170]: Jobber
+        - generic [ref=f2e171]: ServiceTitan
+        - generic [ref=f2e172]: Housecall Pro
+        - generic [ref=f2e173]: Jobber
+    - generic [ref=f2e175]:
+      - paragraph [ref=f2e176]: Ready when the phone rings
+      - heading "Own every emergency call in your market." [level=2] [ref=f2e177]:
+        - text: Own every emergency call
+        - generic [ref=f2e178]: in your market.
+      - paragraph [ref=f2e179]: A short walkthrough tailored to US HVAC shops — see how Meeyaar plugs into your dispatch workflow.
+      - link "Contact now" [ref=f2e180] [cursor=pointer]:
+        - /url: tel:+19085048800
+      - paragraph [ref=f2e184]:
+        - link "meeyaarcc@gmail.com" [ref=f2e185] [cursor=pointer]:
+          - /url: mailto:meeyaarcc@gmail.com
+  - contentinfo [ref=f2e186]:
+    - generic [ref=f2e187]:
+      - generic [ref=f2e188]:
+        - img "Meeyaar Customer Care" [ref=f2e189]
+        - paragraph [ref=f2e190]: US HVAC answering & dispatch
+      - generic [ref=f2e191]:
+        - link "meeyaarcc.com" [ref=f2e192] [cursor=pointer]:
+          - /url: https://meeyaarcc.com
+        - link "meeyaarcc@gmail.com" [ref=f2e193] [cursor=pointer]:
+          - /url: mailto:meeyaarcc@gmail.com
+        - paragraph [ref=f2e194]: © 2026 Meeyaar Customer Care

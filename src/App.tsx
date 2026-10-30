@@ -12,8 +12,7 @@ import {
   UserCheck,
 } from 'lucide-react'
 
-const DEMO_MAIL =
-  'mailto:meeyaarcc@gmail.com?subject=Book%20a%20Demo%20%E2%80%94%20Meeyaar%20Customer%20Care'
+const CONTACT_PHONE = 'tel:+19085048800'
 
 const gallery = [
   { src: img1, label: 'Outdoor AC service' },
@@ -83,19 +82,20 @@ function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-30">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-        <a href="/" className="flex items-center gap-3">
-          <span className="inline-flex h-9 items-center justify-center rounded-lg bg-blue-600 px-2.5 font-display text-[12px] font-extrabold tracking-[0.06em] text-white shadow-sm">
-            MCC
-          </span>
-          <span className="font-display text-[15px] font-bold tracking-tight text-white sm:text-base">
-            Meeyaar Customer Care
-          </span>
+        <a href="/" className="inline-flex items-center">
+          <img
+            src="/logo-banner.png"
+            alt="Meeyaar Customer Care"
+            width={1316}
+            height={265}
+            className="h-auto max-h-10 w-auto max-w-[calc(100vw-12.5rem)] sm:h-14 sm:max-h-none sm:max-w-none"
+          />
         </a>
         <a
-          href={DEMO_MAIL}
+          href={CONTACT_PHONE}
           className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
         >
-          Book a Demo
+          Contact now
           <ArrowUpRight className="h-4 w-4" aria-hidden />
         </a>
       </div>
@@ -141,10 +141,10 @@ function Hero() {
 
           <div className="animate-fade-up-delay-3 mt-9 flex flex-wrap items-center gap-5">
             <a
-              href={DEMO_MAIL}
+              href={CONTACT_PHONE}
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
             >
-              Book a Demo
+              Contact now
               <ArrowUpRight className="h-4 w-4" aria-hidden />
             </a>
             <a
@@ -377,10 +377,10 @@ function FinalCta() {
           into your dispatch workflow.
         </p>
         <a
-          href={DEMO_MAIL}
+          href={CONTACT_PHONE}
           className="mt-10 inline-flex items-center gap-2 rounded-md bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
         >
-          Book a Demo
+          Contact now
           <ArrowUpRight className="h-4 w-4" aria-hidden />
         </a>
         <p className="mt-6 text-sm text-slate-500">
@@ -401,8 +401,14 @@ function Footer() {
     <footer className="border-t border-slate-200 bg-slate-900 py-10 text-slate-300">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <div>
-          <p className="font-display text-lg font-bold text-white">Meeyaar Customer Care</p>
-          <p className="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500">
+          <img
+            src="/logo.png"
+            alt="Meeyaar Customer Care"
+            width={639}
+            height={486}
+            className="h-20 w-auto"
+          />
+          <p className="mt-3 text-xs uppercase tracking-[0.2em] text-slate-500">
             US HVAC answering &amp; dispatch
           </p>
         </div>
