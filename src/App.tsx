@@ -1,3 +1,4 @@
+import { useEffect, useState, type MouseEvent } from 'react'
 import img1 from './assets/slider/1.jpg'
 import img2 from './assets/slider/2.jpg'
 import img3 from './assets/slider/3.jpg'
@@ -7,12 +8,17 @@ import img6 from './assets/slider/6.jpg'
 import {
   ArrowUpRight,
   CalendarSync,
+  Globe,
+  Mail,
+  Phone,
   PhoneIncoming,
   ThermometerSun,
   UserCheck,
 } from 'lucide-react'
 
 const CONTACT_PHONE = 'tel:+19085048800'
+const CONTACT_EMAIL = 'mailto:sales@meeyaarcc.com'
+const SITE_URL = 'https://meeyaarcc.com'
 
 const gallery = [
   { src: img1, label: 'Outdoor AC service' },
@@ -62,42 +68,133 @@ const liveCalls = [
   { time: '1:41 AM', type: 'Water Leak', city: 'Austin, TX', status: 'Booked' },
 ] as const
 
+const contractors = [
+  { name: 'New York Heating and Air Conditioning', city: 'New York, NY', focus: 'Heating and air conditioning service' },
+  { name: 'Best New York HVAC Repair', city: 'New York, NY', focus: 'Heating and AC repair' },
+  { name: '24/7 HVAC of Long Island Inc', city: 'Lawrence, NY', focus: '24/7 emergency HVAC' },
+  { name: 'Rescue Plumbing & HVAC', city: 'Haledon, NJ', focus: '24/7 plumbing and HVAC dispatch' },
+  { name: 'Dynamic HVAC', city: 'Glenville, PA', focus: '24/7 heating and cooling emergencies' },
+] as const
+
+const contactChannels = [
+  { label: 'Phone', value: '+1 908 504 8800', href: CONTACT_PHONE, icon: Phone },
+  { label: 'Email', value: 'sales@meeyaarcc.com', href: CONTACT_EMAIL, icon: Mail },
+  { label: 'Website', value: 'meeyaarcc.com', href: SITE_URL, icon: Globe },
+] as const
+
+type Page = 'home' | 'work' | 'contact'
+
+function pageFromPath(pathname: string): Page {
+  if (pathname === '/work') return 'work'
+  if (pathname === '/contact') return 'contact'
+  return 'home'
+}
+
+function usePage() {
+  const [page, setPage] = useState<Page>(() => pageFromPath(window.location.pathname))
+  useEffect(() => {
+    const sync = () => setPage(pageFromPath(window.location.pathname))
+    window.addEventListener('popstate', sync)
+    return () => window.removeEventListener('popstate', sync)
+  }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    document.title =
+      page === 'work'
+        ? 'Our Work | Meeyaar Customer Care'
+        : page === 'contact'
+          ? 'Contact | Meeyaar Customer Care'
+          : 'Meeyaar Customer Care | 24/7 HVAC Call Answering'
+  }, [page])
+  return page
+}
+
+function go(event: MouseEvent<HTMLAnchorElement>) {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return
+  const href = event.currentTarget.getAttribute('href')
+  if (!href?.startsWith('/')) return
+  event.preventDefault()
+  if (window.location.pathname !== href) {
+    window.history.pushState(null, '', href)
+    window.dispatchEvent(new PopStateEvent('popstate'))
+  } else {
+    window.scrollTo(0, 0)
+  }
+}
+
 function App() {
+  const page = usePage()
   return (
     <div className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-900">
-      <Header />
+      <Header solid={page !== 'home'} page={page} />
       <main>
-        <Hero />
-        <Gallery />
-        <Services />
-        <Integrations />
-        <FinalCta />
+        {page === 'work' ? (
+          <WorkPage />
+        ) : page === 'contact' ? (
+          <ContactPage />
+        ) : (
+          <>
+            <Hero />
+            <Gallery />
+            <Services />
+            <Integrations />
+            <FinalCta />
+          </>
+        )}
       </main>
       <Footer />
     </div>
   )
 }
 
-function Header() {
+function Header({ solid, page }: { solid: boolean; page: Page }) {
+  const linkClass = (id: Page) =>
+    `text-sm font-medium transition hover:text-white ${page === id ? 'text-white' : 'text-white/75'}`
   return (
-    <header className="absolute inset-x-0 top-0 z-30">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-        <a href="/" className="inline-flex items-center">
-          <img
-            src="/logo-banner.png"
-            alt="Meeyaar Customer Care"
-            width={1316}
-            height={265}
-            className="h-auto max-h-10 w-auto max-w-[calc(100vw-12.5rem)] sm:h-14 sm:max-h-none sm:max-w-none"
-          />
-        </a>
-        <a
-          href={CONTACT_PHONE}
-          className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
-        >
-          Contact now
-          <ArrowUpRight className="h-4 w-4" aria-hidden />
-        </a>
+    <header className={solid ? 'bg-slate-900' : 'absolute inset-x-0 top-0 z-30'}>
+      <div className="mx-auto max-w-6xl px-5 py-4 sm:px-8">
+        <div className="flex items-center justify-between gap-4">
+          <a href="/" onClick={go} className="inline-flex items-center">
+            <img
+              src="/logo-banner.png"
+              alt="Meeyaar Customer Care"
+              width={1316}
+              height={265}
+              className="h-auto max-h-10 w-auto max-w-[calc(100vw-12.5rem)] sm:h-14 sm:max-h-none sm:max-w-none"
+            />
+          </a>
+          <div className="flex items-center gap-5 sm:gap-7">
+            <nav className="hidden items-center gap-6 md:flex">
+              <a href="/" onClick={go} className={linkClass('home')} aria-current={page === 'home' ? 'page' : undefined}>
+                Home
+              </a>
+              <a href="/work" onClick={go} className={linkClass('work')} aria-current={page === 'work' ? 'page' : undefined}>
+                Our work
+              </a>
+              <a href="/contact" onClick={go} className={linkClass('contact')} aria-current={page === 'contact' ? 'page' : undefined}>
+                Contact
+              </a>
+            </nav>
+            <a
+              href={CONTACT_PHONE}
+              className="inline-flex shrink-0 items-center gap-2 rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+            >
+              Contact now
+              <ArrowUpRight className="h-4 w-4" aria-hidden />
+            </a>
+          </div>
+        </div>
+        <nav className="mt-3 flex gap-5 md:hidden">
+          <a href="/" onClick={go} className={linkClass('home')} aria-current={page === 'home' ? 'page' : undefined}>
+            Home
+          </a>
+          <a href="/work" onClick={go} className={linkClass('work')} aria-current={page === 'work' ? 'page' : undefined}>
+            Our work
+          </a>
+          <a href="/contact" onClick={go} className={linkClass('contact')} aria-current={page === 'contact' ? 'page' : undefined}>
+            Contact
+          </a>
+        </nav>
       </div>
     </header>
   )
@@ -116,7 +213,7 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-slate-900/40" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,rgb(37_99_235_/_0.25),transparent_55%)]" />
 
-      <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-20 pt-28 sm:px-8 lg:grid-cols-[1.15fr_0.95fr] lg:gap-10 lg:pb-24 lg:pt-24">
+      <div className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-20 pt-36 sm:px-8 lg:grid-cols-[1.15fr_0.95fr] lg:gap-10 lg:pb-24 lg:pt-32">
         <div>
           <p className="animate-fade-up flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-300">
             <span className="live-blink h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -385,10 +482,10 @@ function FinalCta() {
         </a>
         <p className="mt-6 text-sm text-slate-500">
           <a
-            href="mailto:meeyaarcc@gmail.com"
+            href={CONTACT_EMAIL}
             className="text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-blue-600"
           >
-            meeyaarcc@gmail.com
+            sales@meeyaarcc.com
           </a>
         </p>
       </div>
@@ -413,11 +510,23 @@ function Footer() {
           </p>
         </div>
         <div className="flex flex-col gap-1 text-sm text-slate-400 sm:items-end">
-          <a href="https://meeyaarcc.com" className="transition hover:text-white">
+          <a href="/" onClick={go} className="transition hover:text-white">
+            Home
+          </a>
+          <a href="/work" onClick={go} className="transition hover:text-white">
+            Our work
+          </a>
+          <a href="/contact" onClick={go} className="transition hover:text-white">
+            Contact
+          </a>
+          <a href={CONTACT_PHONE} className="transition hover:text-white">
+            +1 908 504 8800
+          </a>
+          <a href={SITE_URL} className="transition hover:text-white">
             meeyaarcc.com
           </a>
-          <a href="mailto:meeyaarcc@gmail.com" className="transition hover:text-white">
-            meeyaarcc@gmail.com
+          <a href={CONTACT_EMAIL} className="transition hover:text-white">
+            sales@meeyaarcc.com
           </a>
           <p className="mt-2 text-xs text-slate-500">
             © {new Date().getFullYear()} Meeyaar Customer Care
@@ -425,6 +534,85 @@ function Footer() {
         </div>
       </div>
     </footer>
+  )
+}
+
+function WorkPage() {
+  return (
+    <>
+      <section className="bg-slate-900 px-5 pb-16 pt-8 text-white sm:px-8 sm:pb-20">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-300">
+            Our work
+          </p>
+          <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-tight sm:text-5xl">
+            HVAC shops we answer for.
+          </h1>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300">
+            New York, New Jersey, and Pennsylvania shops whose after-hours and overflow calls land on our desk.
+          </p>
+        </div>
+      </section>
+      <section className="px-5 py-16 sm:px-8 sm:py-20">
+        <ul className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2">
+          {contractors.map((shop) => (
+            <li key={shop.name} className="rounded-xl border border-slate-200 bg-white p-6 sm:p-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
+                {shop.city}
+              </p>
+              <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-slate-900">
+                {shop.name}
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 sm:text-base">{shop.focus}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  )
+}
+
+function ContactPage() {
+  return (
+    <>
+      <section className="bg-slate-900 px-5 pb-16 pt-8 text-white sm:px-8 sm:pb-20">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-300">
+            Contact
+          </p>
+          <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold tracking-tight sm:text-5xl">
+            Reach the desk.
+          </h1>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300">
+            Call, email, or visit the site. The phone line opens the dialer.
+          </p>
+        </div>
+      </section>
+      <section className="px-5 py-16 sm:px-8 sm:py-20">
+        <ul className="mx-auto grid max-w-6xl gap-4">
+          {contactChannels.map(({ label, value, href, icon: Icon }) => (
+            <li key={label}>
+              <a
+                href={href}
+                className="flex items-center gap-5 rounded-xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:bg-blue-50 sm:p-8"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+                <span>
+                  <span className="block text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
+                    {label}
+                  </span>
+                  <span className="mt-1 block font-display text-xl font-bold text-slate-900 sm:text-2xl">
+                    {value}
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   )
 }
 
