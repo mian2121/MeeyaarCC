@@ -1,4 +1,4 @@
-import { useEffect, useState, type MouseEvent } from 'react'
+import { useEffect, useState, type FormEvent, type MouseEvent } from 'react'
 import img1 from './assets/slider/1.jpg'
 import img2 from './assets/slider/2.jpg'
 import img3 from './assets/slider/3.jpg'
@@ -573,6 +573,29 @@ function WorkPage() {
 }
 
 function ContactPage() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+  const [agreed, setAgreed] = useState(false)
+  const [sent, setSent] = useState(false)
+
+  function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (!agreed) return
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone: ${phone}`,
+      '',
+      message,
+      '',
+      'Consented to SMS contact from Meeyaar and agreed to the privacy policy.',
+    ].join('\n')
+    window.location.href = `${CONTACT_EMAIL}?subject=${encodeURIComponent(`Contact from ${name || 'website'}`)}&body=${encodeURIComponent(body)}`
+    setSent(true)
+  }
+
   return (
     <>
       <section className="bg-slate-900 px-5 pb-16 pt-8 text-white sm:px-8 sm:pb-20">
@@ -584,33 +607,122 @@ function ContactPage() {
             Reach the desk.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300">
-            Call, email, or visit the site. The phone line opens the dialer.
+            Call, email, or send the form below. The phone line opens the dialer.
           </p>
         </div>
       </section>
       <section className="px-5 py-16 sm:px-8 sm:py-20">
-        <ul className="mx-auto grid max-w-6xl gap-4">
-          {contactChannels.map(({ label, value, href, icon: Icon }) => (
-            <li key={label}>
-              <a
-                href={href}
-                className="flex items-center gap-5 rounded-xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:bg-blue-50 sm:p-8"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  <Icon className="h-5 w-5" aria-hidden />
-                </span>
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
+          <ul className="grid gap-4 content-start">
+            {contactChannels.map(({ label, value, href, icon: Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  className="flex items-center gap-5 rounded-xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:bg-blue-50 sm:p-8"
+                >
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <span>
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
+                      {label}
+                    </span>
+                    <span className="mt-1 block font-display text-xl font-bold text-slate-900 sm:text-2xl">
+                      {value}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <form
+            onSubmit={submit}
+            className="rounded-xl border border-slate-200 bg-white p-6 sm:p-8"
+            noValidate
+          >
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
+              Terms &amp; contact
+            </p>
+            <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-slate-900">
+              Send a message
+            </h2>
+            <div className="mt-8 grid gap-5">
+              <label className="grid gap-2 text-sm font-medium text-slate-700">
+                Name
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="rounded-md border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-slate-700">
+                Email
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="rounded-md border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-slate-700">
+                Phone
+                <input
+                  type="tel"
+                  name="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="rounded-md border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-slate-700">
+                Message
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="resize-y rounded-md border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                />
+              </label>
+              <label className="flex items-start gap-3 text-sm leading-relaxed text-slate-600">
+                <input
+                  type="checkbox"
+                  name="terms"
+                  required
+                  checked={agreed}
+                  onChange={(e) => setAgreed(e.target.checked)}
+                  className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                />
                 <span>
-                  <span className="block text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
-                    {label}
-                  </span>
-                  <span className="mt-1 block font-display text-xl font-bold text-slate-900 sm:text-2xl">
-                    {value}
-                  </span>
+                  By providing a telephone number and submitting the form, you are consenting to
+                  be contacted by SMS text message and agreeing to our privacy policy. Message
+                  frequency may vary. Message and data rates may apply. Reply STOP to opt out of
+                  further messaging. Reply HELP for more information.
                 </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+              </label>
+            </div>
+            <button
+              type="submit"
+              disabled={!agreed}
+              className="mt-8 inline-flex items-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+            >
+              Send message
+              <ArrowUpRight className="h-4 w-4" aria-hidden />
+            </button>
+            {sent ? (
+              <p className="mt-4 text-sm text-slate-500">
+                Opening your email app with the message…
+              </p>
+            ) : null}
+          </form>
+        </div>
       </section>
     </>
   )
