@@ -927,6 +927,9 @@ function PrivacyPage() {
           We do not sell, trade, or rent your personal information to third parties. We may share
           information we have collected about you in certain situations:
         </p>
+        <p className="mt-3">
+          Mobile opt-in information, including phone numbers and SMS consent, will not be shared with third parties for marketing purposes. We use it only to send the messages you asked for.
+        </p>
         <ul>
           <li>
             <span className="font-semibold text-slate-900">By law or to protect rights.</span> If we
