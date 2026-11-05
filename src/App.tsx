@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent, type MouseEvent } from 'react'
+import { useEffect, useState, type FormEvent, type MouseEvent, type ReactNode } from 'react'
 import img1 from './assets/slider/1.jpg'
 import img2 from './assets/slider/2.jpg'
 import img3 from './assets/slider/3.jpg'
@@ -82,11 +82,13 @@ const contactChannels = [
   { label: 'Website', value: 'meeyaarcc.com', href: SITE_URL, icon: Globe },
 ] as const
 
-type Page = 'home' | 'work' | 'contact'
+type Page = 'home' | 'work' | 'contact' | 'terms' | 'privacy'
 
 function pageFromPath(pathname: string): Page {
   if (pathname === '/work') return 'work'
   if (pathname === '/contact') return 'contact'
+  if (pathname === '/terms') return 'terms'
+  if (pathname === '/privacy') return 'privacy'
   return 'home'
 }
 
@@ -99,12 +101,14 @@ function usePage() {
   }, [])
   useEffect(() => {
     window.scrollTo(0, 0)
-    document.title =
-      page === 'work'
-        ? 'Our Work | Meeyaar Customer Care'
-        : page === 'contact'
-          ? 'Contact | Meeyaar Customer Care'
-          : 'Meeyaar Customer Care | 24/7 HVAC Call Answering'
+    const titles: Record<Page, string> = {
+      home: 'Meeyaar Customer Care | 24/7 HVAC Call Answering',
+      work: 'Our Work | Meeyaar Customer Care',
+      contact: 'Contact | Meeyaar Customer Care',
+      terms: 'Terms and Conditions | Meeyaar Customer Care',
+      privacy: 'Privacy Policy | Meeyaar Customer Care',
+    }
+    document.title = titles[page]
   }, [page])
   return page
 }
@@ -132,6 +136,10 @@ function App() {
           <WorkPage />
         ) : page === 'contact' ? (
           <ContactPage />
+        ) : page === 'terms' ? (
+          <TermsPage />
+        ) : page === 'privacy' ? (
+          <PrivacyPage />
         ) : (
           <>
             <Hero />
@@ -519,6 +527,12 @@ function Footer() {
           <a href="/contact" onClick={go} className="transition hover:text-white">
             Contact
           </a>
+          <a href="/terms" onClick={go} className="transition hover:text-white">
+            Terms
+          </a>
+          <a href="/privacy" onClick={go} className="transition hover:text-white">
+            Privacy
+          </a>
           <a href={CONTACT_PHONE} className="transition hover:text-white">
             +1 908 504 8800
           </a>
@@ -702,9 +716,16 @@ function ContactPage() {
                 />
                 <span>
                   By providing a telephone number and submitting the form, you are consenting to
-                  be contacted by SMS text message and agreeing to our privacy policy. Message
-                  frequency may vary. Message and data rates may apply. Reply STOP to opt out of
-                  further messaging. Reply HELP for more information.
+                  be contacted by SMS text message and agreeing to our{' '}
+                  <a
+                    href="/privacy"
+                    onClick={go}
+                    className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 hover:text-blue-600"
+                  >
+                    privacy policy
+                  </a>
+                  . Message frequency may vary. Message and data rates may apply. Reply STOP to
+                  opt out of further messaging. Reply HELP for more information.
                 </span>
               </label>
             </div>
@@ -725,6 +746,151 @@ function ContactPage() {
         </div>
       </section>
     </>
+  )
+}
+
+function LegalPage({
+  kicker,
+  title,
+  children,
+}: {
+  kicker: string
+  title: string
+  children: ReactNode
+}) {
+  return (
+    <>
+      <section className="bg-slate-900 px-5 pb-16 pt-8 text-white sm:px-8 sm:pb-20">
+        <div className="mx-auto max-w-3xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-300">
+            {kicker}
+          </p>
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1>
+        </div>
+      </section>
+      <section className="px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-3xl space-y-8 text-sm leading-relaxed text-slate-600 sm:text-base [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900">
+          {children}
+        </div>
+      </section>
+    </>
+  )
+}
+
+function TermsPage() {
+  return (
+    <LegalPage kicker="Legal" title="Terms and conditions">
+      <p>
+        These terms apply to meeyaarcc.com and to messages you agree to receive from Meeyaar
+        Customer Care (“Meeyaar”). By using the site or submitting the contact form, you agree to
+        these terms and to our{' '}
+        <a href="/privacy" onClick={go} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
+          privacy policy
+        </a>
+        .
+      </p>
+      <div>
+        <h2>Services</h2>
+        <p className="mt-3">
+          Meeyaar is a professional services business. We provide customer care support, including
+          call answering, dispatch coordination, and follow-up, as described on this website. A
+          specific engagement starts only when we confirm it with you.
+        </p>
+      </div>
+      <div>
+        <h2>Contact form and text messages</h2>
+        <p className="mt-3">
+          By providing a telephone number and submitting the form, you are consenting to be
+          contacted by SMS text message and agreeing to our privacy policy. Messages may include
+          customer support and follow-up about your inquiry. Message frequency may vary. Message
+          and data rates may apply. Reply STOP to opt out of further messaging. Reply HELP for more
+          information. Consent to texts is not a condition of purchase.
+        </p>
+      </div>
+      <div>
+        <h2>Acceptable use</h2>
+        <p className="mt-3">
+          Do not misuse the site or the form, including by sending unlawful, misleading, or harmful
+          content, or by attempting to disrupt the service.
+        </p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <p className="mt-3">
+          Questions about these terms:{' '}
+          <a href={CONTACT_EMAIL} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
+            sales@meeyaarcc.com
+          </a>{' '}
+          or{' '}
+          <a href={CONTACT_PHONE} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
+            +1 908 504 8800
+          </a>
+          .
+        </p>
+      </div>
+    </LegalPage>
+  )
+}
+
+function PrivacyPage() {
+  return (
+    <LegalPage kicker="Legal" title="Privacy policy">
+      <p>
+        This policy explains what Meeyaar Customer Care (“Meeyaar”) collects through meeyaarcc.com
+        and how we use it. It also covers text messages you agree to receive.
+      </p>
+      <div>
+        <h2>Information we collect</h2>
+        <p className="mt-3">
+          If you submit the contact form, we collect your name, email address, telephone number, and
+          message. We also receive the fact that you consented to SMS. The site host may collect
+          basic technical data such as browser type and pages viewed.
+        </p>
+      </div>
+      <div>
+        <h2>How we use it</h2>
+        <p className="mt-3">
+          We use this information to respond to you, provide customer support, and send the
+          communications you opted into. We do not sell your personal information.
+        </p>
+      </div>
+      <div>
+        <h2>Text messages</h2>
+        <p className="mt-3">
+          Messages are sent only to individuals who have provided consent to receive SMS
+          communications from Meeyaar. Message frequency varies. Message and data rates may apply.
+          Reply STOP to opt out or HELP for assistance. We may use a messaging provider to deliver
+          those texts. Phone numbers and consent records are not shared for another company’s
+          marketing.
+        </p>
+      </div>
+      <div>
+        <h2>How long we keep it</h2>
+        <p className="mt-3">
+          We keep contact details and messages for as long as needed to handle your request, keep a
+          record of consent, and meet legal obligations. You can ask us to delete your information,
+          except where we must retain it.
+        </p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <p className="mt-3">
+          Privacy questions or deletion requests:{' '}
+          <a href={CONTACT_EMAIL} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
+            sales@meeyaarcc.com
+          </a>{' '}
+          or{' '}
+          <a href={CONTACT_PHONE} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
+            +1 908 504 8800
+          </a>
+          . See also our{' '}
+          <a href="/terms" onClick={go} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
+            terms and conditions
+          </a>
+          .
+        </p>
+      </div>
+    </LegalPage>
   )
 }
 
