@@ -806,6 +806,9 @@ function TermsPage() {
           and data rates may apply. Reply STOP to opt out of further messaging. Reply HELP for more
           information. Consent to texts is not a condition of purchase.
         </p>
+        <p className="mt-3">
+          You agree to receive information messages (appointment reminders, account notifications, etc.) from MEEYAAR LLC. Message frequency varies. Message and data rates may apply. For help, reply HELP or email us at sales@meeyaarcc.com. You can opt out at any time by replying STOP.
+        </p>
       </div>
       <div>
         <h2>Acceptable use</h2>
