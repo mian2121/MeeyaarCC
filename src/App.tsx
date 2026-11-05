@@ -769,7 +769,7 @@ function LegalPage({
         </div>
       </section>
       <section className="px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto max-w-3xl space-y-8 text-sm leading-relaxed text-slate-600 sm:text-base [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900">
+        <div className="mx-auto max-w-3xl space-y-8 text-sm leading-relaxed text-slate-600 sm:text-base [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
           {children}
         </div>
       </section>
@@ -836,58 +836,166 @@ function PrivacyPage() {
   return (
     <LegalPage kicker="Legal" title="Privacy policy">
       <p>
-        This policy explains what Meeyaar Customer Care (“Meeyaar”) collects through meeyaarcc.com
-        and how we use it. It also covers text messages you agree to receive.
+        <span className="font-semibold text-slate-900">Effective date:</span> November 5, 2026
+      </p>
+      <p>
+        At Meeyaar Customer Care (“we,” “our,” or “us”), your privacy is our priority. This Privacy
+        Policy explains how we collect, use, disclose, and safeguard your information when you visit
+        meeyaarcc.com or engage with our customer care services.
+      </p>
+      <p>
+        Please read this Privacy Policy carefully. If you do not agree with the terms of this
+        privacy policy, please do not access the site or use our services. See also our{' '}
+        <a href="/terms" onClick={go} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
+          terms and conditions
+        </a>
+        .
       </p>
       <div>
-        <h2>Information we collect</h2>
+        <h2>1. Information we collect</h2>
         <p className="mt-3">
-          If you submit the contact form, we collect your name, email address, telephone number, and
-          message. We also receive the fact that you consented to SMS. The site host may collect
-          basic technical data such as browser type and pages viewed.
+          We may collect information about you in a variety of ways. The information we may collect
+          includes:
+        </p>
+        <ul>
+          <li>
+            <span className="font-semibold text-slate-900">Personal data.</span> Personally
+            identifiable information, such as your name, email address, and telephone number. By
+            providing a telephone number, you are consenting to be contacted by SMS text message and
+            agreeing to our Privacy Policy. Message frequency may vary. Message and data rates may
+            apply. Reply STOP to opt out of further messaging. Reply HELP for more information. You
+            give us this information when you request a quote, submit the contact form, or register
+            for our services.
+          </li>
+          <li>
+            <span className="font-semibold text-slate-900">Financial data.</span> Payment details we
+            may collect when you purchase, order, or request information about our services.
+          </li>
+          <li>
+            <span className="font-semibold text-slate-900">Client and operational data.</span> When
+            you use our customer care services, we may be given access to your systems, call records,
+            and customer inquiries so we can do the work you asked us to do.
+          </li>
+          <li>
+            <span className="font-semibold text-slate-900">Derivative data.</span> Information our
+            servers automatically collect when you access the site, such as your IP address, browser
+            type, operating system, and access times.
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2>2. How we use your information</h2>
+        <p className="mt-3">
+          Having accurate information about you permits us to provide you with a smooth, efficient,
+          and customized experience. Specifically, we may use information collected about you to:
+        </p>
+        <ul>
+          <li>Create and manage your account and billing profile.</li>
+          <li>Deliver customer care, call answering, and related support services.</li>
+          <li>Respond to inquiries and send the messages you opted into, including SMS.</li>
+          <li>Email you regarding your account, active work, or questions you sent us.</li>
+          <li>Increase the efficiency and operation of the website.</li>
+          <li>Monitor and analyze usage and trends to improve your experience with the site.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>3. Customer care data handling</h2>
+        <p className="mt-3">
+          When we support a client’s customers, Meeyaar acts on that client’s behalf. In the course
+          of providing customer care, our staff may interact with caller and customer information.
+        </p>
+        <ul>
+          <li>
+            <span className="font-semibold text-slate-900">Confidentiality.</span> We access call
+            details, messages, and customer records only to carry out the duties in the service
+            arrangement.
+          </li>
+          <li>
+            <span className="font-semibold text-slate-900">No data selling.</span> We do not copy,
+            share, sell, or distribute client lead data, customer data, or internal business
+            information. That information stays the client’s.
+          </li>
+          <li>
+            <span className="font-semibold text-slate-900">Access revocation.</span> When services
+            end, our access to the client’s platforms and data is removed.
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2>4. Disclosure of your information</h2>
+        <p className="mt-3">
+          We do not sell, trade, or rent your personal information to third parties. We may share
+          information we have collected about you in certain situations:
+        </p>
+        <ul>
+          <li>
+            <span className="font-semibold text-slate-900">By law or to protect rights.</span> If we
+            believe the release of information about you is necessary to respond to legal process, to
+            investigate or remedy potential violations of our policies, or to protect the rights,
+            property, and safety of others.
+          </li>
+          <li>
+            <span className="font-semibold text-slate-900">Third-party service providers.</span> We
+            may share your information with third parties that perform services for us or on our
+            behalf, including payment processing, email delivery, text-message delivery, and hosting.
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2>5. Security of your information</h2>
+        <p className="mt-3">
+          We use administrative, technical, and physical security measures to help protect your
+          personal information and the data handled while providing our services. While we have taken
+          reasonable steps to secure the personal information you provide to us, please be aware that
+          despite our efforts, no security measures are perfect or impenetrable, and no method of data
+          transmission can be guaranteed against any interception or other type of misuse.
         </p>
       </div>
       <div>
-        <h2>How we use it</h2>
+        <h2>6. Cookies and tracking technologies</h2>
         <p className="mt-3">
-          We use this information to respond to you, provide customer support, and send the
-          communications you opted into. We do not sell your personal information.
+          We may use cookies, web beacons, tracking pixels, and other tracking technologies on our
+          website to help customize the site and improve your experience. You can choose to set your
+          web browser to remove or reject cookies, but be aware that such action could affect the
+          availability and functionality of the website.
         </p>
       </div>
       <div>
-        <h2>Text messages</h2>
+        <h2>7. Your privacy rights</h2>
+        <p className="mt-3">Depending on your location, you may have the right to:</p>
+        <ul>
+          <li>Request access to the personal data we hold about you.</li>
+          <li>Request that we correct or update your personal data.</li>
+          <li>Request that we delete your personal data from our records.</li>
+        </ul>
         <p className="mt-3">
-          Messages are sent only to individuals who have provided consent to receive SMS
-          communications from Meeyaar. Message frequency varies. Message and data rates may apply.
-          Reply STOP to opt out or HELP for assistance. We may use a messaging provider to deliver
-          those texts. Phone numbers and consent records are not shared for another company’s
-          marketing.
+          To exercise any of these rights, please contact us using the information below.
         </p>
       </div>
       <div>
-        <h2>How long we keep it</h2>
+        <h2>8. Changes to this privacy policy</h2>
         <p className="mt-3">
-          We keep contact details and messages for as long as needed to handle your request, keep a
-          record of consent, and meet legal obligations. You can ask us to delete your information,
-          except where we must retain it.
+          We may update this Privacy Policy from time to time in order to reflect, for example,
+          changes to our practices or for other operational, legal, or regulatory reasons. We will
+          alert you about any changes by updating the effective date of this Privacy Policy.
         </p>
       </div>
       <div>
-        <h2>Contact</h2>
+        <h2>9. Contact us</h2>
         <p className="mt-3">
-          Privacy questions or deletion requests:{' '}
+          If you have questions or comments about this Privacy Policy, please contact us at:
+        </p>
+        <p className="mt-3 font-semibold text-slate-900">Meeyaar Customer Care</p>
+        <p className="mt-1">
+          Email:{' '}
           <a href={CONTACT_EMAIL} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
             sales@meeyaarcc.com
-          </a>{' '}
-          or{' '}
+          </a>
+          <br />
+          Phone:{' '}
           <a href={CONTACT_PHONE} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
             +1 908 504 8800
           </a>
-          . See also our{' '}
-          <a href="/terms" onClick={go} className="text-slate-900 underline underline-offset-4 hover:text-blue-600">
-            terms and conditions
-          </a>
-          .
         </p>
       </div>
     </LegalPage>
